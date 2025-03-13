@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,158 +7,222 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: #f7f7f7; /* Soft neutral background */
-  color: #333333; /* Dark gray text for readability */
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.5;
 }
 
-/* Header */
-.ex-tracker-header {
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  text-align: center;
-  background: #4a90e2; /* Soft blue header */
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Total Expense Amount (Card Style) */
+header {
+  background-color: #3f51b5;
+  padding: 15px 0;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
 .total-expense-amount {
-  margin: 20px auto;
-  padding: 20px;
-  background: #ffffff; /* Pure white background */
-  color: #333333;
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  color: #4caf50;
 }
 
-/* Form Area */
+/* Form Styles */
 .ex-tracker-form-area {
+  background: #fff;
   padding: 30px;
-  background: #ffffff; /* Pure white form background */
-  margin: 20px auto;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
 }
 
-/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
 input[type="text"],
 input[type="number"],
-#expense-type {
+select {
   width: 100%;
-  padding: 15px;
-  margin: 10px 0;
+  padding: 10px;
   font-size: 16px;
-  background-color: #ffffff; /* White for inputs */
-  border: 1px solid #dddddd; /* Soft border */
-  border-radius: 12px;
-  box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.1),
-    inset -2px -2px 8px rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border 0.3s ease;
 }
 
 input[type="text"]:focus,
-input[type="number"]:focus {
-  outline: none;
-  box-shadow: inset 2px 2px 12px rgba(0, 0, 0, 0.2),
-    inset -2px -2px 12px rgba(255, 255, 255, 0.7);
+input[type="number"]:focus,
+select:focus {
+  border-color: #3f51b5;
 }
 
-/* Button */
-.add-expense-btn {
+button {
   width: 100%;
-  padding: 15px;
-  background-color: #ff5722; /* Bright orange button */
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
+  padding: 12px;
+  background-color: #3f51b5;
+  color: white;
+  font-size: 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
-.add-expense-btn:hover {
-  background-color: #ff7043; /* Slightly lighter orange on hover */
-  transform: scale(1.05);
+button:hover {
+  background-color: #303f9f;
 }
 
-/* Expense Item Containers */
+/* Expense List Styles */
 .expense-item-container {
   display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .expense-debit-item-container,
 .expense-credit-item-container {
-  flex: 1;
-  margin: 10px;
-  padding: 15px;
-  background-color: #ffffff; /* Card background */
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  width: 48%;
+  margin: 1%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.expense-debit-item-container:hover,
-.expense-credit-item-container:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+/* Chart Styles */
+.chart-container {
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Debit and Credit Item Styling */
-.credit-item,
-.debit-item {
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 12px;
-  margin-bottom: 15px;
+/* Search and Export Buttons */
+#search-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border 0.3s;
 }
 
-.credit-item {
-  background-color: #a3e4d7; /* Light green for credits */
+#search-input:focus {
+  border-color: #3f51b5;
 }
 
-.debit-item {
-  background-color: #f5b7b1; /* Light red for debits */
-}
-
-/* Delete Button */
-.delete-expense {
-  background-color: transparent;
-  border: 2px solid #ff5733; /* Red border for delete button */
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.delete-expense:hover {
-  background-color: #ff5733; /* Red background on hover */
+.export-btn {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background-color: #8bc34a;
   color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Mobile Responsiveness */
+.export-btn:hover {
+  background-color: #7cb342;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .expense-item-container {
     flex-direction: column;
-    align-items: center;
   }
 
   .expense-debit-item-container,
   .expense-credit-item-container {
     width: 100%;
+  }
+}
+
+/* Animate expense items as they appear */
+.expense-item-container .expense-item {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Global styles... */
+
+.dark-mode-btn {
+  background: none  ;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  transition: color 0.3s;
+  z-index: 100;
+  width: 2px;
+}
+
+.dark-mode-btn i {
+  font-size: 20px;
+}
+
+.dark-mode-btn:hover {
+  color: #f0f0f0;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode .ex-tracker-header {
+  background-color: #333;
+}
+
+body.dark-mode .total-expense-amount {
+  color: #00e676;
+}
+
+body.dark-mode .ex-tracker-form-area {
+  background: #222;
+}
+
+/* On dark mode active, change icon color */
+body.dark-mode .dark-mode-btn i {
+  color: #f1c40f; /* Gold color for moon icon */
+}
+
+body.dark-mode .dark-mode-btn:hover i {
+  color: #f39c12; /* Darker gold color when hovered */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dark-mode-btn {
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
   }
 }

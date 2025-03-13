@@ -7,7 +7,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
     <link href="style.css" type="text/css" rel="stylesheet" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Expense Tracker</title>
   </head>
   <body>
@@ -15,40 +22,63 @@
       <div class="brand">
         <span>@Made by Agni</span>
       </div>
+
+      <button id="dark-mode-toggle" class="dark-mode-btn">
+        <i class="fas fa-moon"></i>
+      </button>
     </header>
 
-    <div class="total-expense-amount">0.00</div>
+    <div class="container">
+      <div class="total-expense-amount">₹0.00</div>
 
-    <div class="ex-tracker-form-area">
-      <form>
-        <select id="expense-type">
-          <option>Select Type (Default:Debit)</option>
-          <option value="credit">Credit</option>
-          <option value="debit">Debit</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Enter a Description"
-          id="desc"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Enter an Amount"
-          id="amount"
-          required
-        />
-        <button class="add-expense-btn">Add Expense</button>
-      </form>
-    </div>
+      <div class="ex-tracker-form-area">
+        <form id="expense-form">
+          <div class="form-group">
+            <select id="expense-type">
+              <option value="debit">Debit (Default)</option>
+              <option value="credit">Credit</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Enter a Description"
+              id="desc"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              placeholder="Enter an Amount"
+              id="amount"
+              required
+            />
+          </div>
+          <button type="submit" class="add-expense-btn">
+            <i class="fas fa-plus-circle"></i> Add Expense
+          </button>
+        </form>
+      </div>
 
-    <div class="expense-item-container">
-      <div class="expense-debit-item-container">
-        <!-- Debit Items will be listed here -->
+      <div class="expense-item-container">
+        <div class="expense-debit-item-container">
+          <!-- Debit Items will be listed here -->
+        </div>
+        <div class="expense-credit-item-container">
+          <!-- Credit Items will be listed here -->
+        </div>
       </div>
-      <div class="expense-credit-item-container">
-        <!-- Credit Items will be listed here -->
+
+      <div class="chart-container">
+        <canvas id="expenseChart"></canvas>
       </div>
+
+      <input type="text" id="search-input" placeholder="Search Expenses..." />
+
+      <button id="export-btn" class="export-btn">
+        <i class="fas fa-file-export"></i> Export Expenses
+      </button>
     </div>
 
     <script src="out/app.js"></script>
