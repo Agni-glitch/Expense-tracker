@@ -21,7 +21,7 @@ To get started with this project locally, follow these steps:
 3) **Install TypeScript:** Open your terminal and run the following command:
 ``npm install -g typescript``
 4) **Clone the Repository:**
-``git clone <repository-url>
+``git clone https://github.com/Agni-glitch/Expense-tracker.git
 ``
 5) **Open the Project in Your IDE:** Launch your IDE and open the project folder.
 
