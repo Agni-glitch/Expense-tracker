@@ -1,95 +1,196 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-body{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.ex-tracker-header{
-  /* box-shadow: rgb(196, 190, 190) 0px 2px 8px 0px; */
-  padding: 15px 30px;
-  font-weight:900;
-  font-size: 28px;
-  background-color: #FE5F55;
-  color: white;
-  border-bottom: #C7EFCF 5px solid;
-}
-.total-expense-amount{
-  margin: 0;
-  background-color: #F0B67F;
-  color: #000000;
-  text-align: center;
-  padding: 20px 0px;
-  font-size: 40px;
-  font-weight: bold;
-}
-.ex-tracker-form-area{
-  margin: 0;
-  padding: 70px 0;
-  text-align: center;
-  background-color: #F0B67F;
-  color: white;
-}
-input[type=text], #expense-type{
-  width: 90%;
-  height: 40px;
-  padding: 10px 30px;
-}
-.add-expense-btn{
-  width: 90%;
-  height: 40px;
-  background-color:#EEF5DB;
-}
-.expense-item-container{
-  width: 100%;
-  display: flex;
+/* Global Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-.expense-debit-item-container, .expense-credit-item-container{
-  width: 50%;
-  padding: 10px 10px;
-}
-.credit-item, .debit-item{
-  padding: 5px;
-  display: flex;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-.credit-item{
-  background-color: #A3E4D7;
-  border: #1ABC9C  1.5px solid;
 
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f7fa;
+  color: #333;
 }
-.debit-item{
-  background-color: #F5B7B1;
-  border: #FF5733 1.5px solid;
+
+/* Header with Glassmorphism */
+.ex-tracker-header {
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
-.exp-desc{
-  width: 65%;
+
+.brand {
+  font-size: 24px;
+  color:#ff5722;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
-.exp-amt{
+
+/* Total Expense Amount (Neumorphism) */
+.total-expense-amount {
+  margin: 20px auto;
+  padding: 20px;
+  background: #f4f7fa;
+  color: #333;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
+    -8px -8px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Form Area */
+.ex-tracker-form-area {
+  padding: 30px;
+  background: #ffffff;
+  margin: 20px auto;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
+    -8px -8px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="number"],
+#expense-type {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  background-color: #f0f2f5;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 15px rgba(255, 255, 255, 0.8);
+}
+
+#expense-type {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+/* Add Expense Button (Modern Hover Effect) */
+.add-expense-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff8a65;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1),
+    -4px -4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.add-expense-btn:hover {
+  background-color: #ff5722;
+  transform: scale(1.05);
+}
+
+/* Expense Item Containers */
+.expense-item-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.expense-debit-item-container,
+.expense-credit-item-container {
+  flex: 1;
+  margin: 10px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
+    -8px -8px 15px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.expense-debit-item-container:hover,
+.expense-credit-item-container:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Expense Items (Neumorphism) */
+.credit-item,
+.debit-item {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.6);
+}
+
+.credit-item {
+  background-color: #a3e4d7;
+}
+
+.debit-item {
+  background-color: #f5b7b1;
+}
+
+/* Text Alignment and Styling for Items */
+.exp-desc {
+  width: 60%;
+}
+
+.exp-amt {
   width: 25%;
+  font-weight: 700;
 }
-.exp-delete{
+
+.exp-delete {
   width: 10%;
   text-align: right;
 }
-.delete-expense{
+
+.delete-expense {
   background-color: transparent;
-  border: #28282B 2px solid;
+  border: 2px solid #28282b;
   border-radius: 50%;
   height: 20px;
   width: 20px;
-  font-size: 10px;
-  font-weight: 700;
-  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-/* .app-topic{
-  padding: 30px 30px;
-  margin: 50px 50px;
-  box-shadow: rgba(64, 211, 105, 0.35) 0px 5px 15px;
-  background-color: #2ECC71;
-  text-align: center;
-} */
+
+.delete-expense:hover {
+  background-color: #ff5733;
+  color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .expense-item-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .expense-debit-item-container,
+  .expense-credit-item-container {
+    width: 100%;
+  }
+}
