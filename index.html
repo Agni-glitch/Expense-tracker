@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" type="text/css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <div class="ex-tracker-header">
-        <svg width="250" height="50" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="textGradient" x1="0" y1="0" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color: #C7EFCF; stop-opacity: 1" />
-              <stop offset="100%" style="stop-color: rgb(71, 48, 26); stop-opacity: 1" />
-            </linearGradient>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#bgGradient)" rx="20" />
-          <text
-            x="50%"
-            y="50%"
-            font-size="20"
-            font-family="'Arial Black', sans-serif"
-            fill="url(#textGradient)"
-            text-anchor="middle"
-            alignment-baseline="middle"
-            filter="url(#textShadow)"
-          >
-            @Made by Agni
-          </text>
-        </svg>
-    </div>
-    <div class="total-expense-amount">
-        0.00
-    </div>
-    <div class="ex-tracker-form-area">
-        <form>
-            <select id="expense-type">
-                <option>Select Type (Default:Debit)</option>
-                <option value="credit">Credit</option>
-                <option value="debit">Debit</option>
-            </select>
-            <input type="text" placeholder="Enter a Description" id="desc">
-            <input type="text" placeholder="Enter an Amount" id="amount">
-            <button class="add-expense-btn">Add Expense</button>
-        </form>
-    </div>
-    <div class="expense-item-container">
-        <div class="expense-debit-item-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <header class="ex-tracker-header">
+      <div class="brand">
+        <span>@Made by Agni</span>
+      </div>
+
+      <button id="dark-mode-toggle" class="dark-mode-btn">
+        <i class="fas fa-moon"></i>
+      </button>
+    </header>
+
+    <div class="container">
+      <div class="total-expense-amount">₹0.00</div>
+
+      <div class="ex-tracker-form-area">
+        <form id="expense-form">
+          <div class="form-group">
+            <select id="expense-type">
+              <option value="debit">Debit (Default)</option>
+              <option value="credit">Credit</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Enter a Description"
+              id="desc"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              placeholder="Enter an Amount"
+              id="amount"
+              required
+            />
+          </div>
+          <button type="submit" class="add-expense-btn">
+            <i class="fas fa-plus-circle"></i> Add Expense
+          </button>
+        </form>
+      </div>
+
+      <div class="expense-item-container">
+        <div class="expense-debit-item-container">
+          <!-- Debit Items will be listed here -->
         </div>
         <div class="expense-credit-item-container">
-
+          <!-- Credit Items will be listed here -->
         </div>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="expenseChart"></canvas>
+      </div>
+
+      <input type="text" id="search-input" placeholder="Search Expenses..." />
+
+      <button id="export-btn" class="export-btn">
+        <i class="fas fa-file-export"></i> Export Expenses
+      </button>
     </div>
+
     <script src="out/app.js"></script>
-</body>
+  </body>
 </html>
