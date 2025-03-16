@@ -1,95 +1,180 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-body{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.ex-tracker-header{
-  /* box-shadow: rgb(196, 190, 190) 0px 2px 8px 0px; */
-  padding: 15px 30px;
-  font-weight:900;
-  font-size: 28px;
-  background-color: #FE5F55;
-  color: white;
-  border-bottom: #C7EFCF 5px solid;
-}
-.total-expense-amount{
-  margin: 0;
-  background-color: #F0B67F;
-  color: #000000;
-  text-align: center;
-  padding: 20px 0px;
-  font-size: 40px;
-  font-weight: bold;
-}
-.ex-tracker-form-area{
-  margin: 0;
-  padding: 70px 0;
-  text-align: center;
-  background-color: #F0B67F;
-  color: white;
-}
-input[type=text], #expense-type{
-  width: 90%;
-  height: 40px;
-  padding: 10px 30px;
-}
-.add-expense-btn{
-  width: 90%;
-  height: 40px;
-  background-color:#EEF5DB;
-}
-.expense-item-container{
-  width: 100%;
-  display: flex;
+/* General Styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-.expense-debit-item-container, .expense-credit-item-container{
-  width: 50%;
-  padding: 10px 10px;
-}
-.credit-item, .debit-item{
-  padding: 5px;
-  display: flex;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-.credit-item{
-  background-color: #A3E4D7;
-  border: #1ABC9C  1.5px solid;
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fb;
+  color: #333;
+  padding: 20px;
+  height: 100%;
 }
-.debit-item{
-  background-color: #F5B7B1;
-  border: #FF5733 1.5px solid;
+
+/* Header */
+.ex-tracker-header {
+  background: linear-gradient(135deg, #ff6f61, #ff9a8b);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
-.exp-desc{
-  width: 65%;
-}
-.exp-amt{
-  width: 25%;
-}
-.exp-delete{
-  width: 10%;
-  text-align: right;
-}
-.delete-expense{
-  background-color: transparent;
-  border: #28282B 2px solid;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  font-size: 10px;
+
+.ex-tracker-header h1 {
+  font-size: 3rem;
   font-weight: 700;
-  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
-/* .app-topic{
-  padding: 30px 30px;
-  margin: 50px 50px;
-  box-shadow: rgba(64, 211, 105, 0.35) 0px 5px 15px;
-  background-color: #2ECC71;
+
+.ex-tracker-header svg text {
+  font-size: 26px;
+  font-family: "Arial Black", sans-serif;
+  fill: white;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Total Expense Amount */
+.total-expense-amount {
   text-align: center;
-} */
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff6347;
+  border-bottom: 2px solid #ff6347;
+  padding-bottom: 10px;
+}
+
+/* Expense Form */
+.ex-tracker-form-area {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.ex-tracker-form-area:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ex-tracker-form-area form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ex-tracker-form-area select,
+.ex-tracker-form-area input,
+.ex-tracker-form-area button {
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.ex-tracker-form-area select:focus,
+.ex-tracker-form-area input:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 5px rgba(255, 111, 97, 0.7);
+}
+
+.ex-tracker-form-area select {
+  background-color: #f9f9f9;
+}
+
+.ex-tracker-form-area button {
+  background-color: #ff6347;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ex-tracker-form-area button:hover {
+  background-color: #ff4500;
+  transform: translateY(-3px);
+}
+
+.ex-tracker-form-area button:active {
+  transform: translateY(1px);
+}
+
+/* Expense Item Containers */
+.expense-item-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.expense-debit-item-container,
+.expense-credit-item-container {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expense-debit-item-container:hover,
+.expense-credit-item-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.expense-debit-item-container h3 {
+  color: #4caf50;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.expense-credit-item-container h3 {
+  color: #00bcd4;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.expense-debit-item-container ul,
+.expense-credit-item-container ul {
+  list-style-type: none;
+}
+
+.expense-debit-item-container li,
+.expense-credit-item-container li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Design with Bootstrap */
+@media (max-width: 768px) {
+  .expense-item-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ex-tracker-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .ex-tracker-form-area {
+    width: 90%;
+    margin: 30px auto;
+  }
+}
