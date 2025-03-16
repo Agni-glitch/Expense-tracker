@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="style.css" type="text/css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" type="text/css" rel="stylesheet" />
     <title>Document</title>
-</head>
-<body>
-    <div class="ex-tracker-header">
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #16a085, #f4d03f);
+        color: #333;
+        padding: 20px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ex-tracker-header">
         <svg width="250" height="50" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="textGradient" x1="0" y1="0" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color: #C7EFCF; stop-opacity: 1" />
-              <stop offset="100%" style="stop-color: rgb(71, 48, 26); stop-opacity: 1" />
+              <stop offset="0%" style="stop-color: #c7efcf; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(71, 48, 26); stop-opacity: 1"
+              />
             </linearGradient>
           </defs>
-          <rect width="100%" height="100%" fill="url(#bgGradient)" rx="20" />
           <text
             x="50%"
             y="50%"
@@ -26,35 +60,29 @@
             fill="url(#textGradient)"
             text-anchor="middle"
             alignment-baseline="middle"
-            filter="url(#textShadow)"
           >
             @Made by Agni
           </text>
         </svg>
-    </div>
-    <div class="total-expense-amount">
-        0.00
-    </div>
-    <div class="ex-tracker-form-area">
+      </div>
+      <div class="total-expense-amount">0.00</div>
+      <div class="ex-tracker-form-area">
         <form>
-            <select id="expense-type">
-                <option>Select Type (Default:Debit)</option>
-                <option value="credit">Credit</option>
-                <option value="debit">Debit</option>
-            </select>
-            <input type="text" placeholder="Enter a Description" id="desc">
-            <input type="text" placeholder="Enter an Amount" id="amount">
-            <button class="add-expense-btn">Add Expense</button>
+          <select id="expense-type">
+            <option>Select Type (Default:Debit)</option>
+            <option value="credit">Credit</option>
+            <option value="debit">Debit</option>
+          </select>
+          <input type="text" placeholder="Enter a Description" id="desc" />
+          <input type="text" placeholder="Enter an Amount" id="amount" />
+          <button class="add-expense-btn">Add Expense</button>
         </form>
-    </div>
-    <div class="expense-item-container">
-        <div class="expense-debit-item-container">
-
-        </div>
-        <div class="expense-credit-item-container">
-
-        </div>
+      </div>
+      <div class="expense-item-container">
+        <div class="expense-debit-item-container"></div>
+        <div class="expense-credit-item-container"></div>
+      </div>
     </div>
     <script src="out/app.js"></script>
-</body>
+  </body>
 </html>
